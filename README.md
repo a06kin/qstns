@@ -1,3 +1,7 @@
+TODO:
+
+Select the frameworks for testing (clojure)
+
 #qstns
 
 Plans:
@@ -38,5 +42,3 @@ Test:
 + Clojure for testing (muahahaha)
 
 ##Magic
-
-now
