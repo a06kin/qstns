@@ -44,13 +44,12 @@ Test(Clojure):
 + Lazytest (Not under active development)
 
 
-
 ##Technology stack
 
-+ ~~Spring~~ Spark (want to try)
++ Spring ~~Spark (not bad)~~
 + embedded DB
 + Clojure for testing (muahahaha)
-+ Mockito + cljito
-+ Speclj or Expectations
++ Mockito + cljito (±Ring-Mock)
++ Speclj or Expectations and
 
 ##Magic
