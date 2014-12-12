@@ -1,23 +1,17 @@
 package me.aaa.qstns;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+@EnableAutoConfiguration
+@ComponentScan
 public class Application {
+
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
 }
 
-/*
-Config for web.xml on server
-
-<filter>
-    <filter-name>SparkFilter</filter-name>
-    <filter-class>spark.servlet.SparkFilter</filter-class>
-    <init-param>
-        <param-name>applicationClass</param-name>
-        <param-value>com.company.YourApplication</param-value>
-    </init-param>
-</filter>
-
-<filter-mapping>
-    <filter-name>SparkFilter</filter-name>
-    <url-pattern>/*</url-pattern>
-</filter-mapping>
-
- */
