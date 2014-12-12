@@ -50,6 +50,6 @@ Test(Clojure):
 + embedded DB
 + Clojure for testing (muahahaha)
 + Mockito + cljito (±Ring-Mock)
-+ Speclj or Expectations and
++ Speclj or Expectations
 
 ##Magic
