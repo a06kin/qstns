@@ -5,8 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
 @Service
 @Transactional
 public class QstnServiceImpl implements QstnService {
@@ -20,6 +18,10 @@ public class QstnServiceImpl implements QstnService {
         q.setQstn(qstn);
         q.setCountry(country);
 
+        if (false){
+            //check dictionary
+
+        }
         qstnRepository.save(q);
         return q;
     }
