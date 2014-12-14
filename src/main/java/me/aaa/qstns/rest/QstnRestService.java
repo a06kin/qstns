@@ -36,8 +36,6 @@ public class QstnRestService {
 
     @RequestMapping(method = RequestMethod.GET)
     public List<Qstn> getAllQstnByCountry(HttpServletRequest request) {
-        System.out.println("find all ");
-        System.out.println(qstnRepository.findAll());
         return qstnRepository.findAll();
     }
 
