@@ -1,7 +1,5 @@
 package me.aaa.qstns.domain;
 
-import com.sun.istack.internal.NotNull;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,10 +12,8 @@ public class Qstn implements Serializable {
     @GeneratedValue
     private Long id;
 
-    @NotNull
-    private String qstn;
+    private String data;
 
-    @NotNull
     private String country;
 
     public Long getId() {
@@ -29,11 +25,11 @@ public class Qstn implements Serializable {
     }
 
     public String getQstn() {
-        return qstn;
+        return data;
     }
 
-    public void setQstn(String qstn) {
-        this.qstn = qstn;
+    public void setQstn(String data) {
+        this.data = data;
     }
 
     public String getCountry() {
