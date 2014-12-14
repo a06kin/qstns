@@ -41,6 +41,7 @@ public class CountryServiceImpl implements CountryService {
             return json.getString("country_code");
 
         } catch (IOException | JSONException e) {
+            e.printStackTrace();
             return "lv";
         }
     }
