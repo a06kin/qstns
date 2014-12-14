@@ -17,11 +17,11 @@ import java.io.IOException;
 public class CountryServiceImpl implements CountryService {
 
     private static final String LOCALHOST = "127.0.0.1";
-    private static final String NIC = "92.240.66.50";
 
     @Override
     public String getCountryForClient(String ip) {
-        String url = "http://www.telize.com/geoip/" + ( LOCALHOST.equals(ip) ? NIC : ip );
+        if (LOCALHOST.equals(ip)) return "lv";
+        String url = "http://www.telize.com/geoip/" + ip;
 
         HttpClient client = HttpClientBuilder.create().build();
 
