@@ -16,8 +16,8 @@ import java.io.IOException;
 @Transactional
 public class CountryServiceImpl implements CountryService {
 
-    private final static String LOCALHOST = "127.0.0.1";
-    private final static String NIC = "92.240.66.50";
+    private static final String LOCALHOST = "127.0.0.1";
+    private static final String NIC = "92.240.66.50";
 
     @Override
     public String getCountryForClient(String ip) {
