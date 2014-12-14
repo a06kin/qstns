@@ -27,7 +27,8 @@ public class QstnRestService {
 
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<String> askQstn(@RequestParam("question") String qstn,
-                                               HttpServletRequest request) { //TODO: throw exception
+                                               HttpServletRequest request) {
+                                               //TODO: throw exception
         final String ip = request.getRemoteAddr();
         String country = countryService.getCountryForClient(ip);
         qstnService.askQstn(qstn, country);
