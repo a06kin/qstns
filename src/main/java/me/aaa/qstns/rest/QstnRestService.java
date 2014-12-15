@@ -56,12 +56,12 @@ public class QstnRestService {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public List<Qstn> getAllQstn(HttpServletRequest request) {
+    public List<Qstn> getAllQstn() {
         return qstnRepository.findByStatus(QstnStatus.OK);
     }
 
     @RequestMapping(value = "/country/{country}", method = RequestMethod.GET)
-    public List<Qstn> getAllQstnByCountry(@PathVariable("country") String country, HttpServletRequest request) {
+    public List<Qstn> getAllQstnByCountry(@PathVariable("country") String country) {
         return qstnRepository.findByCountryAndStatus(country, QstnStatus.OK);
     }
 
