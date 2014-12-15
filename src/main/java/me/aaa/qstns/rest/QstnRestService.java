@@ -23,6 +23,8 @@ import java.util.List;
 @RequestMapping(value = "/qstn")
 public class QstnRestService {
 
+    public static final int ONE_SECOND_IN_MILISECONDS = 1000;
+
     @Autowired
     private QstnService qstnService;
 
@@ -47,7 +49,7 @@ public class QstnRestService {
                                           HttpServletRequest request) throws QstnExceptions {
         final String ip = request.getRemoteAddr();
         String country = countryService.getCountryForClient(ip);
-        long from = new Date().getTime() - (qstnSettings.getInTimeLimit().longValue() * 1000);
+        long from = new Date().getTime() - (qstnSettings.getInTimeLimit().longValue() * ONE_SECOND_IN_MILISECONDS);
         countryFilterService.checkTimeLimit(new Time(from), qstnSettings.getReqLimit(), country);
 
         Qstn q = qstnService.askQstn(qstn, country);
