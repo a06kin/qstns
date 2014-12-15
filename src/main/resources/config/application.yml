@@ -1,0 +1,7 @@
+qstns:
+  defaultCountry: lv
+  badWords:
+    - test
+    - test1
+    - test2
+  timeframeLimit: 2

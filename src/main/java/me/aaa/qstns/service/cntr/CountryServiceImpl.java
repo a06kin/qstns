@@ -1,5 +1,6 @@
 package me.aaa.qstns.service.cntr;
 
+import me.aaa.qstns.basis.settings.QstnSettings;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
@@ -7,6 +8,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,9 +20,12 @@ public class CountryServiceImpl implements CountryService {
 
     private static final String LOCALHOST = "127.0.0.1";
 
+    @Autowired
+    private QstnSettings qstnSettings;
+
     @Override
     public String getCountryForClient(String ip) {
-        if (LOCALHOST.equals(ip)) return "lv";
+        if (LOCALHOST.equals(ip)) return qstnSettings.getDefaultCountry();
         String url = "http://www.telize.com/geoip/" + ip;
 
         HttpClient client = HttpClientBuilder.create().build();
@@ -30,7 +35,7 @@ public class CountryServiceImpl implements CountryService {
 
         String result;
         HttpResponse response;
-        JSONObject json = null;
+        JSONObject json;
 
         try {
             response = client.execute(request);
@@ -42,7 +47,7 @@ public class CountryServiceImpl implements CountryService {
 
         } catch (IOException | JSONException e) {
             e.printStackTrace();
-            return "lv";
+            return qstnSettings.getDefaultCountry();
         }
     }
 }
