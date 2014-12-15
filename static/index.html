@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div>
+    <form onsubmit="return askQstn(this);" action="javascript:void(0);" method="post" style="float:left;">
+        Qstn: <input type="text" name="question"/>
+        <input type="submit" value="Submit now"/>
+    </form>
+</div>
+
+<button onclick="getAllQstn();">Refresh all Q</button>
+<div id="allQstn" style="height: 100px">
+
+</div>
+
+<div>
+    <form onsubmit="return getAllQstnByCountry(this.country.value);" action="javascript:void(0);" method="post">
+        Country: <input type="text" name="country"/>
+        <input type="submit" value="Submit now"/>
+    </form>
+    <div id="qstnByCountry" style="height: 100px">
+
+    </div>
+</div>
+<script>
+    function askQstn(form) {
+        $.ajax({
+            type: 'POST',
+            url: 'http://127.0.0.1:8080/qstn',
+            data: {question: form.question.value},
+            success: function (data) {
+                getAllQstn();
+            }
+        });
+    }
+
+    function getAllQstn() {
+        $.ajax({
+            type: 'GET',
+            url: 'http://127.0.0.1:8080/qstn',
+            success: function (data) {
+                $('#allQstn').html(JSON.stringify(data));
+            }
+        });
+    }
+
+    function getAllQstnByCountry(country) {
+        $.ajax({
+            type: 'GET',
+            url: 'http://127.0.0.1:8080/qstn/country/' + country,
+            success: function (data) {
+                $('#qstnByCountry').html(JSON.stringify(data));
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
