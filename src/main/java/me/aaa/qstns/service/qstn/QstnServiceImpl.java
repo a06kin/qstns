@@ -16,7 +16,7 @@ public class QstnServiceImpl implements QstnService {
     @Override
     public Qstn askQstn(String qstn, String country){
         Qstn q = new Qstn();
-        q.setQstn(qstn);
+        q.setData(qstn);
         q.setCountry(country);
         qstnRepository.save(q);
         return q;
