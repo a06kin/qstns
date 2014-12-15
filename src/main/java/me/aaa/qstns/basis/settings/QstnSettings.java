@@ -5,7 +5,6 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Configuration;
 
 import javax.validation.constraints.NotNull;
-import java.math.BigDecimal;
 import java.util.List;
 
 @Configuration
@@ -20,10 +19,13 @@ public class QstnSettings {
     private List<String> badWords;
 
     @NotNull
-    private BigDecimal timeframeLimit;
+    private Integer inTimeLimit;
+
+    @NotNull
+    private Integer reqLimit;
 
     public String getDefaultCountry() {
-        return this.defaultCountry;
+        return defaultCountry;
     }
 
     public void setDefaultCountry(String defaultCountry) {
@@ -38,11 +40,19 @@ public class QstnSettings {
         this.badWords = badWords;
     }
 
-    public BigDecimal getTimeframeLimit() {
-        return timeframeLimit;
+    public Integer getInTimeLimit() {
+        return inTimeLimit;
     }
 
-    public void setTimeframeLimit(BigDecimal timeframeLimit) {
-        this.timeframeLimit = timeframeLimit;
+    public void setInTimeLimit(Integer inTimeLimit) {
+        this.inTimeLimit = inTimeLimit;
+    }
+
+    public Integer getReqLimit() {
+        return reqLimit;
+    }
+
+    public void setReqLimit(Integer reqLimit) {
+        this.reqLimit = reqLimit;
     }
 }
