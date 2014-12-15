@@ -13,8 +13,6 @@ import java.util.List;
 @ConfigurationProperties(prefix = "qstns")
 public class QstnSettings {
 
-    public QstnSettings(){}
-
     @NotNull
     private String defaultCountry;
 

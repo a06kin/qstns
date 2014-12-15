@@ -18,11 +18,6 @@ public class QstnServiceImpl implements QstnService {
         Qstn q = new Qstn();
         q.setQstn(qstn);
         q.setCountry(country);
-
-        if (false){
-            //check dictionary
-
-        }
         qstnRepository.save(q);
         return q;
     }

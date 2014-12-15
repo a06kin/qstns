@@ -25,7 +25,9 @@ public class CountryServiceImpl implements CountryService {
 
     @Override
     public String getCountryForClient(String ip) {
-        if (LOCALHOST.equals(ip)) return qstnSettings.getDefaultCountry();
+        if (LOCALHOST.equals(ip)){
+            return qstnSettings.getDefaultCountry();
+        }
         String url = "http://www.telize.com/geoip/" + ip;
 
         HttpClient client = HttpClientBuilder.create().build();
