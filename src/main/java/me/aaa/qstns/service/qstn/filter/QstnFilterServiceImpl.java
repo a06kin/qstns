@@ -24,7 +24,7 @@ public class QstnFilterServiceImpl implements QstnFilterService {
     @Override
     public Qstn validateQst(Qstn qstn) throws QstnExceptions {
         for (String word: qstnSettings.getBadWords()){
-            if (StringUtils.containsIgnoreCase(qstn.getQstn(), word)){
+            if (StringUtils.containsIgnoreCase(qstn.getData(), word)){
                 qstn.setStatus(QstnStatus.CONTAINS_ILLEGAL_WORDS);
                 qstnRepository.save(qstn);
                 throw new QstnExceptions(QstnStatus.CONTAINS_ILLEGAL_WORDS, "Question contains blacklisted words");
