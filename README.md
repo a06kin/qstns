@@ -1,6 +1,6 @@
 TODO:
 
-Select the frameworks for testing (clojure)
+clojuuuuuuuure!!!!!!!!
 
 #qstns
 
@@ -53,3 +53,23 @@ Test(Clojure):
 + Speclj or Expectations
 
 ##Magic
+basic functionality:
+
+- ask question DONE
+- list all accepted questions DONE
+- list all accepted questions by country code DONE
+- question validation
+  - blacklisted words DONE
+  - timeframe limit DONE
+  - origin country resolution DONE
+
+##self check
+- Conformance to business requirements
+  - made as much as understand the task
+- Code quality
+  - java code convention and style
+  - SonarQube
+- including testability
+  - !!en route!!
+- How easy it is to run and deploy the service (don't make us install Oracle database please ;)
+  - mvn install (maybe with clean) or something like that
