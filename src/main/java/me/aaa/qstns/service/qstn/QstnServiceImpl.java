@@ -9,11 +9,12 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class QstnServiceImpl implements QstnService {
 
+    @SuppressWarnings("SpringJavaAutowiringInspection")
     @Autowired
     private QstnRepository qstnRepository;
 
     @Override
-    public Qstn askQstn(String qstn, String country) {
+    public Qstn askQstn(String qstn, String country){
         Qstn q = new Qstn();
         q.setQstn(qstn);
         q.setCountry(country);
