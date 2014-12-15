@@ -61,6 +61,7 @@ basic functionality:
 - question validation
   - blacklisted words DONE
   - timeframe limit DONE
+  _i think dat better to use reversed proxy solution (like nginx) or separate small (script or c) solution on individual server_
   - origin country resolution DONE
 
 ##self check
