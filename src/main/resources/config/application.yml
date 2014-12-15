@@ -4,4 +4,5 @@ qstns:
     - test
     - test1
     - test2
-  timeframeLimit: 2
+  reqLimit: 1
+  inTimeLimit: 1 #in sec
