@@ -2,11 +2,11 @@ package me.aaa.qstns.domain;
 
 import me.aaa.qstns.basis.enums.QstnStatus;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.sql.Timestamp;
+import java.util.Date;
 
 @Entity
 public class Qstn implements Serializable {
@@ -21,14 +21,16 @@ public class Qstn implements Serializable {
     @NotNull
     private String country;
 
+    @NotNull
+    private Timestamp time;
+
+    @NotNull
     private QstnStatus status = QstnStatus.NOT_PROCESSED;
 
-    public QstnStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(QstnStatus status) {
-        this.status = status;
+    @PrePersist
+    @PreUpdate
+    protected void lastTouch() {
+        time = new Timestamp(new Date().getTime());
     }
 
     public Long getId() {
@@ -39,11 +41,11 @@ public class Qstn implements Serializable {
         this.id = id;
     }
 
-    public String getQstn() {
+    public String getData() {
         return data;
     }
 
-    public void setQstn(String data) {
+    public void setData(String data) {
         this.data = data;
     }
 
@@ -53,5 +55,21 @@ public class Qstn implements Serializable {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public Timestamp getTime() {
+        return time;
+    }
+
+    public void setTime(Timestamp time) {
+        this.time = time;
+    }
+
+    public QstnStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(QstnStatus status) {
+        this.status = status;
     }
 }
