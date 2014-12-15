@@ -1,7 +1,10 @@
 package me.aaa.qstns.basis.exceptions;
 
 import me.aaa.qstns.basis.enums.QstnStatus;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
+@ResponseStatus(HttpStatus.EXPECTATION_FAILED) //#417
 public class QstnExceptions extends Exception {
 
     private QstnStatus status;
