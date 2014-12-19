@@ -16,6 +16,6 @@ public interface QstnRepository extends JpaRepository<Qstn, Long> {
 
     List<Qstn> findByStatus(QstnStatus status);
 
-    @Query("select q from Qstn q where q.time >= :from and q.country = :country")
-    List<Qstn> findByTimerame(@Param("from") Time from, @Param("country") String country);
+    @Query("select count(q) from Qstn q where q.time >= :from and q.country = :country")
+    Integer countByTimerameAndCountry(@Param("from") Time from, @Param("country") String country);
 }

@@ -18,10 +18,11 @@ public class CountryFilterServiceImpl implements CountryFilterService {
     private QstnRepository qstnRepository;
 
     @Override
-    public void checkTimeLimit(Time fromTime, Integer count, String country) throws QstnExceptions {
-        if (qstnRepository.findByTimerame(fromTime, country).size() >= count){
+    public boolean checkTimeLimit(Time fromTime, Integer count, String country) throws QstnExceptions {
+        if (qstnRepository.countByTimerameAndCountry(fromTime, country) >= count){
             throw new QstnExceptions(QstnStatus.REACHED_MAX_QSTN_LIMIT, "Too many requests from your country");
         }
+        return true;
     }
 
 }
