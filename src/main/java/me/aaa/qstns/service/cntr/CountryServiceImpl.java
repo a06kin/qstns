@@ -18,16 +18,11 @@ import java.io.IOException;
 @Transactional
 public class CountryServiceImpl implements CountryService {
 
-    private static final String LOCALHOST = "127.0.0.1";
-
     @Autowired
     private QstnSettings qstnSettings;
 
     @Override
-    public String getCountryForClient(String ip) {
-        if (LOCALHOST.equals(ip)){
-            return qstnSettings.getDefaultCountry();
-        }
+    public String getCountryForClient(String ip) { //TODO: rework
         String url = "http://www.telize.com/geoip/" + ip;
 
         HttpClient client = HttpClientBuilder.create().build();
