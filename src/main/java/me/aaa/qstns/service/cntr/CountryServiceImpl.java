@@ -2,11 +2,12 @@ package me.aaa.qstns.service.cntr;
 
 import me.aaa.qstns.basis.settings.QstnSettings;
 import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
-import org.json.JSONException;
+import org.apache.log4j.Logger;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,11 +19,13 @@ import java.io.IOException;
 @Transactional
 public class CountryServiceImpl implements CountryService {
 
+    private static final Logger LOGGER = Logger.getLogger(CountryService.class);
+
     @Autowired
     private QstnSettings qstnSettings;
 
     @Override
-    public String getCountryForClient(String ip) { //TODO: rework
+    public String getCountryForClient(String ip) throws IOException {
         String url = "http://www.telize.com/geoip/" + ip;
 
         HttpClient client = HttpClientBuilder.create().build();
@@ -40,10 +43,14 @@ public class CountryServiceImpl implements CountryService {
 
             json = new JSONObject(result);
 
-            return json.getString("country_code");
+            if (json.has("country_code")){
+                return json.getString("country_code");
+            }else{
+                return qstnSettings.getDefaultCountry();
+            }
 
-        } catch (IOException | JSONException e) {
-            e.printStackTrace();
+        } catch (ClientProtocolException e) {
+            LOGGER.debug(e);
             return qstnSettings.getDefaultCountry();
         }
     }
