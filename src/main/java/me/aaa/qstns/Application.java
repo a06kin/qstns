@@ -10,6 +10,10 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan
 public class Application {
 
+    private Application(){
+
+    }
+
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
