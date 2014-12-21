@@ -17,7 +17,7 @@ public class SuccessfulAskQstns {
         this.q = qstn;
     }
 
-    @When("^Mr.Duke ask question$")
+    @When("^Mr.Duke ask question with status (\\d+)$")
     public void mrDuke_ask_qstn(Integer statusCode){
         given()
                 .param("question", q)
