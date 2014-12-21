@@ -1,76 +1,63 @@
-TODO:
+# Qstns
+Simple ask qstns application
 
-clojuuuuuuuure!!!!!!!!
+## Requirements
+JRE 8
+Maven
 
-#qstns
+## Compile
+Using maven: `mvn clean install`
 
-Plans:
+## Run
+java -jar qstns-1.0-SNAPSHOT.jar
 
-0. Market research
-1. Pick technology stack
-2. Press "magic" button(s)
-  20. Test
-  21. Code
-  
-##Market research
+## Configuration
+You can change configuration in `src/main/resources/application.yml`
 
-REST in JAVA (||||| - max):
+Example configuration:
 
-+ Simple JAX-RS |||
-+ Apache CXF || (hm...)
-+ Jersey  ||||| (don't like)
-+ RESTEasy | (JBoss - it will be to heavy))
-+ Spring |||||
-+ RESTX  |||| (nice, but I have already use it now)
-+ Spark |||| (learned after jug/gdg 11.12.14)
+    qstns:
+      defaultCountry: lv
+      badWords:
+        - brainfuck
+        - brainsquueze
+        - brainspin
+      reqLimit: 1
+      inTimeLimit: 1 #in sec
 
-Test:
+## Functionality
+### Ask qstn
+POST `/qstn`
 
-+ JUnit
-+ Cucumber
+    data:
+      question: "What is the meaning of life?"
 
-"Feel free to write tests in any JVM language" - ask.fm:
+### Get all qstns
+GET `/loans`
 
-+ Clojure (it can be fun)
-+ Scala (hm...)
-+ Kawa (noup)
+### Get qstns by country
+GET `/country/{country}`
 
-Test(Clojure):
-+ clojure.test (default lib in clojure) |||
-+ Expectations - one assertion per test. ||||
-+ Speclj ||||
-+ Humane Test Output (for clojure.test) ||
-+ Midje |||
-+ Lazytest (Not under active development)
-
-
-##Technology stack
-
-+ Spring ~~Spark (not bad)~~
-+ embedded DB
-+ Clojure for testing (muahahaha)
-+ Mockito + cljito (±Ring-Mock)
-+ Speclj or Expectations
-
-##Magic
-basic functionality:
-
-- ask question DONE
-- list all accepted questions DONE
-- list all accepted questions by country code DONE
-- question validation
-  - blacklisted words DONE
-  - timeframe limit DONE
-  _i think dat better to use reversed proxy solution (like nginx) or separate small (script or c) solution on individual server_
-  - origin country resolution DONE
-
-##self check
-- Conformance to business requirements
-  - made as much as understand the task
-- Code quality
-  - java code convention and style
-  - SonarQube
-- including testability
-  - !!en route!!
-- How easy it is to run and deploy the service (don't make us install Oracle database please ;)
-  - mvn install (maybe with clean) or something like that
+## Example of json from get all qstns
+        [
+            {
+                "id":1,
+                "data":"I've been locked up! Somebody help me!",
+                "country":"lv",
+                "time":1419155611788,
+                "status":"OK"
+            },
+            {
+                "id":2,
+                "data":"To be or not to be?",
+                "country":"lv",
+                "time":1419155627972,
+                "status":"OK"
+            },{
+                "id":3,
+                "data":"Cookies?",
+                "country":"lv",
+                "time":1419155656506,
+                "status":"OK"
+            }
+        ]
