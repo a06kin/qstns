@@ -6,7 +6,7 @@ JRE 8
 Maven
 
 ## Compile
-Using maven: `mvn clean install`
+Using maven: `mvn clean -Dmaven.test.skip=true install`
 
 ## Run
 java -jar qstns-1.0-SNAPSHOT.jar
