@@ -33,7 +33,7 @@ POST `/qstn`
       question: "What is the meaning of life?"
 
 ### Get all qstns
-GET `/loans`
+GET `/qstn`
 
 ### Get qstns by country
 GET `/country/{country}`
@@ -61,3 +61,4 @@ GET `/country/{country}`
                 "status":"OK"
             }
         ]
+## Screens
