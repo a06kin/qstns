@@ -7,7 +7,7 @@ Maven
 
 ## Compile
 Using maven: `mvn clean -Dmaven.test.skip=true install`  
-_Because for cucumber test we need running application instance_
+_Because of cucumber test we need running application instance_
 
 ## Run
 java -jar qstns-1.0-SNAPSHOT.jar
