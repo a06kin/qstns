@@ -62,3 +62,7 @@ GET `/country/{country}`
             }
         ]
 ## Screens
+
+![Structure](struct.jpg)
+![Time statistics](timeStatistic.png)
+![Qube statistics](qube.png)
