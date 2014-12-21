@@ -2,7 +2,7 @@
 Simple ask qstns application
 
 ## Requirements
-JRE 8
+JRE 8  
 Maven
 
 ## Compile
