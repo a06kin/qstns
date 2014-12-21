@@ -19,7 +19,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
 import java.sql.Time;
 import java.util.Arrays;
 import java.util.List;
@@ -67,7 +66,7 @@ public class QstnRestServiceTest {
     }
 
     @Test
-    public void testAskQstn() throws QstnExceptions, IOException {
+    public void testAskQstn() throws QstnExceptions{
         String qstn = "Wazzaaaaap?";
         when(countryService.getCountryForClient(IP)).thenReturn(COUNTRY);
         ResponseEntity<String> result = qstnRestService.askQstn(qstn, request);

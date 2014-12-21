@@ -2,7 +2,6 @@ package me.aaa.qstns.service.cntr;
 
 import me.aaa.qstns.basis.settings.QstnSettings;
 import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
@@ -25,7 +24,7 @@ public class CountryServiceImpl implements CountryService {
     private QstnSettings qstnSettings;
 
     @Override
-    public String getCountryForClient(String ip) throws IOException {
+    public String getCountryForClient(String ip){
         String url = "http://www.telize.com/geoip/" + ip;
 
         HttpClient client = HttpClientBuilder.create().build();
@@ -49,7 +48,7 @@ public class CountryServiceImpl implements CountryService {
                 return qstnSettings.getDefaultCountry();
             }
 
-        } catch (ClientProtocolException e) {
+        } catch (IOException e) {
             LOGGER.debug(e);
             return qstnSettings.getDefaultCountry();
         }

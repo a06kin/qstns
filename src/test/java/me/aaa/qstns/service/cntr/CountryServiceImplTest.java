@@ -7,8 +7,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import java.io.IOException;
-
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
@@ -26,14 +24,14 @@ public class CountryServiceImplTest {
     private CountryServiceImpl countryService;
 
     @Test
-    public void testGetCountryForClientNormal() throws IOException {
+    public void testGetCountryForClientNormal(){
         String country = "US";
         String actualCountry = countryService.getCountryForClient(NORMAL_IP);
         assertEquals(country, actualCountry);
     }
 
     @Test()
-    public void testGetCountryForClientBad() throws IOException {
+    public void testGetCountryForClientBad(){
         when(qstnSettings.getDefaultCountry()).thenReturn(COUNTRY);
         String actualCountry = countryService.getCountryForClient(BAD_IP);
         assertEquals(COUNTRY, actualCountry);

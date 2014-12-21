@@ -15,7 +15,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
 import java.sql.Time;
 import java.util.Date;
 import java.util.List;
@@ -47,7 +46,7 @@ public class QstnRestService {
 
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<String> askQstn(@RequestParam("question") String qstn,
-                                          HttpServletRequest request) throws QstnExceptions, IOException {
+                                          HttpServletRequest request) throws QstnExceptions{
         final String ip = request.getRemoteAddr();
         String country = countryService.getCountryForClient(ip);
         long from = new Date().getTime() - (qstnSettings.getInTimeLimit().longValue() * ONE_SECOND_IN_MILLISECONDS);

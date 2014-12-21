@@ -32,7 +32,7 @@ public class QstnFilterServiceImplTest {
     private QstnFilterServiceImpl qstnFilterService;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp(){
         when(qstnSettings.getBadWords()).thenReturn(Arrays.asList("test", "test2"));
     }
 
