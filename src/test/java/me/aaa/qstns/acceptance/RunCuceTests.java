@@ -1,5 +1,8 @@
 package me.aaa.qstns.acceptance;
 
-//@RunWith(Cucumber.class)
+import cucumber.api.junit.Cucumber;
+import org.junit.runner.RunWith;
+
+@RunWith(Cucumber.class)
 public class RunCuceTests {
 }
