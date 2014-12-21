@@ -6,7 +6,7 @@ JRE 8
 Maven
 
 ## Compile
-Using maven: `mvn clean -Dmaven.test.skip=true install`
+Using maven: `mvn clean -Dmaven.test.skip=true install`  
 _Because for cucumber test we need running application instance_
 
 ## Run
