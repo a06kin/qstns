@@ -13,6 +13,7 @@ java -jar qstns-1.0-SNAPSHOT.jar
 
 ## Configuration
 You can change configuration in `src/main/resources/application.yml`
+_Because for cucumber test we need running application instance_
 
 Example configuration:
 
