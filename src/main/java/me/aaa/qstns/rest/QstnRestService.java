@@ -53,7 +53,7 @@ public class QstnRestService {
         long from = new Date().getTime() - (qstnSettings.getInTimeLimit().longValue() * ONE_SECOND_IN_MILLISECONDS);
         countryFilterService.checkTimeLimit(new Time(from), qstnSettings.getReqLimit(), country);
 
-        Qstn q = qstnService.askQstn(qstn, country); //TODO: every where save country as lowercase (or check case insensitive)
+        Qstn q = qstnService.askQstn(qstn, country);
         qstnFilterService.validateQst(q);
         return new ResponseEntity<>(HttpStatus.OK);
     }
