@@ -61,7 +61,7 @@ GET `/country/{country}`
                 "status":"OK"
             }
         ]
-## Screens
+## Screens (updated 21.12.2014 15:20)
 
 ![Structure](struct.jpg)
 ![Time statistics](timeStatistic.png)
