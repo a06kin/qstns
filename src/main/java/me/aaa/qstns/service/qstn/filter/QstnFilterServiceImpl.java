@@ -23,16 +23,20 @@ public class QstnFilterServiceImpl implements QstnFilterService {
 
     @Override
     public Qstn validateQst(Qstn qstn) throws QstnExceptions {
-        for (String word: qstnSettings.getBadWords()){
-            if (StringUtils.containsIgnoreCase(qstn.getData(), word)){
-                qstn.setStatus(QstnStatus.CONTAINS_ILLEGAL_WORDS);
-                qstnRepository.save(qstn);
-                throw new QstnExceptions(QstnStatus.CONTAINS_ILLEGAL_WORDS, "Question contains blacklisted words");
-            }else{
-                qstn.setStatus(QstnStatus.OK);
-                qstnRepository.save(qstn);
+        String[] words = qstn.getData().split(" ");
+        for (String badWord: qstnSettings.getBadWords()){
+            for(String word: words) {
+                if (StringUtils.containsIgnoreCase(word, badWord)) {
+                    qstn.setStatus(QstnStatus.CONTAINS_ILLEGAL_WORDS);
+                    //In any case we save the question
+                    //Perhaps in the future it will be useful
+                    qstnRepository.save(qstn);
+                    throw new QstnExceptions(QstnStatus.CONTAINS_ILLEGAL_WORDS, "Question contains blacklisted words");
+                }
             }
         }
+        qstn.setStatus(QstnStatus.OK);
+        qstnRepository.save(qstn);
         return qstn;
     }
 }
