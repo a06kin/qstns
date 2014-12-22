@@ -36,7 +36,7 @@ POST `/qstn`
 GET `/qstn`
 
 ### Get qstns by country
-GET `/country/{country}`
+GET `/qstn/country/{country}`
 
 ## Example of json from get all qstns
         [
