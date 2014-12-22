@@ -25,7 +25,7 @@ public class CountryServiceImplTest {
 
     @Test
     public void testGetCountryForClientNormal(){
-        String country = "US";
+        String country = "us";
         String actualCountry = countryService.getCountryForClient(NORMAL_IP);
         assertEquals(country, actualCountry);
     }

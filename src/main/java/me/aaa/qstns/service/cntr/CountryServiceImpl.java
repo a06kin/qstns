@@ -43,14 +43,14 @@ public class CountryServiceImpl implements CountryService {
             json = new JSONObject(result);
 
             if (json.has("country_code")){
-                return json.getString("country_code");
+                return json.getString("country_code").toLowerCase();
             }else{
-                return qstnSettings.getDefaultCountry();
+                return qstnSettings.getDefaultCountry().toLowerCase();
             }
 
         } catch (IOException e) {
             LOGGER.debug(e);
-            return qstnSettings.getDefaultCountry();
+            return qstnSettings.getDefaultCountry().toLowerCase();
         }
     }
 }
