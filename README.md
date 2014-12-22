@@ -6,8 +6,7 @@ JRE 8
 Maven
 
 ## Compile
-Using maven: `mvn clean -Dmaven.test.skip=true install`  
-_For cucumber test we need to run app in separate jvm instance. First time run without tests._
+Using maven: `mvn clean install`  
 
 ## Run
 java -jar qstns-1.0-SNAPSHOT.jar
